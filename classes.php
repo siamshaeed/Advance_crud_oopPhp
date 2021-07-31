@@ -1,14 +1,16 @@
 <?php
-    //oop class
-    class Oopcrud{
+    //oop class (student insert).
+    class StudentInfo{
         //oop method
-        public function oopCrudpp($data){
+        public function studentInsert($data){
            //Database connect
             $db = new mysqli("localhost", "root", "", "oopCrud_php");
             //mysql query
             $sql = "INSERT INTO stuinfo(`stuId`, `stuName`, `stuEmail`, `stuPhone`, `stuDept`) VALUES ('', '$data[stuName]', '$data[stuEmail]', '$data[stuPhone]', '$data[stuDept]')";
+            
             //query exicute
-            mysqli_query($db, $sql);
+            // mysqli_query($db, $sql);
+
             //query exicute chack
             if(mysqli_query($db, $sql)){
                 $message = "Data insert Done";
@@ -16,7 +18,6 @@
             }else{
                 die('Query Exicute Problem'. mysqli_error($db));
             }
-        }
-        
+        } 
     }
 ?>
