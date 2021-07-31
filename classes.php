@@ -1,8 +1,7 @@
 <?php
-    
-    class StudentInfo{//oop class (for student insert).
+    class StudentInfo{  //oop class (for student insert).
         //database connection make global using __construct function.
-        protected $db; //make global veriable
+        protected $db;  //make global veriable
         public function __construct(){
             //Database connect
             $this->db = new mysqli("localhost", "root", "", "oopCrud_php");
@@ -14,11 +13,21 @@
             //query exicute
             // mysqli_query($db, $sql);
 
-            if(mysqli_query($this->db, $sql)){ //query exicute chack
+            if(mysqli_query($this->db, $sql)){  //query exicute chack
                 $message = "Data insert Done";
                 return $message;
             }else{
                 die('Query Exicute Problem'. mysqli_error($this->db));
             }
         } 
+        public function studentSelect(){
+            $sql = "SELECT * FROM stuinfo";
+            if(mysqli_query($this->db, $sql)){
+                $query_result = mysqli_query($this->db, $sql);
+                return $query_result;
+            }else{
+                die('Query execute problem'.mysqli_error($this->db));
+            }
+        }
     }
+?>

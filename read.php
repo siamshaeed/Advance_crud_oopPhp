@@ -9,6 +9,11 @@
 
 </head>
 <body>
+	<?php
+	require_once 'classes.php';
+	$objSelect = new StudentInfo;
+	$query_result = $objSelect -> studentSelect();
+	?>
 	<!-- header section start -->
 	<div class="container">
 		<div class="row">
@@ -63,13 +68,15 @@
 								</tr>
 							</thead>
 							<tbody>
+								<?php while ($stu_info = mysqli_fetch_assoc($query_result)){?>
 								<tr>
-									<td>Shaeed Al Hasan Siam</td>
-									<td>siamshaeed@gmail.com</td>
-									<td>01787972797</td>
-									<td>cse</td>
+									<td><?php echo $stu_info['stuName'];?></td>
+									<td><?php echo $stu_info['stuEmail'];?></td>
+									<td><?php echo $stu_info['stuPhone'];?></td>
+									<td><?php echo $stu_info['stuDept'];?></td>
 									<td>Edit | Delete</td>
 								</tr>
+								<?php } ?>
 							</tbody>
 						</table>
 					</div>
