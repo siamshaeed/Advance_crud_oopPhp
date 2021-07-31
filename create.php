@@ -1,7 +1,3 @@
-<?php
-$db = new mysqli("localhost", "root", "", "oopCrud_php");
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,10 +12,11 @@ $db = new mysqli("localhost", "root", "", "oopCrud_php");
 <body>
 	<!-- php  -->
 	<?php
+	$msg = "";
 	if (isset($_POST['btn'])) {
 		require_once 'classes.php';
 		$objcrud = new Oopcrud;
-		$objcrud->oopCrudpp($_POST);
+		$msg = $objcrud->oopCrudpp($_POST);
 	}
 	?>
 	<!-- header section start -->
@@ -65,6 +62,7 @@ $db = new mysqli("localhost", "root", "", "oopCrud_php");
 				<div class="myBody">
 					<h4 class="bodyTitle">Student Registration</h4>
 					<div class="regform">
+						<b><?php echo $msg?></b>
 						<form action="" method="post">
 							<input class="myinput" type="text" name="stuName" placeholder="Enter Your Name">
 							<input class="myinput" type="email" name="stuEmail" placeholder="Enter Your Email">
