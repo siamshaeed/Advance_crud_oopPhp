@@ -20,6 +20,7 @@
                 die('Query Exicute Problem'. mysqli_error($this->db));
             }
         } 
+        //This method for data read
         public function studentSelect(){
             $sql = "SELECT * FROM stuinfo";
             if(mysqli_query($this->db, $sql)){

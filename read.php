@@ -64,7 +64,7 @@
 									<th>Email</th>
 									<th>Phone</th>
 									<th>Depertment</th>
-									<th>Action</th>
+									<!-- <th>Action</th> -->
 								</tr>
 							</thead>
 							<tbody>
@@ -74,7 +74,7 @@
 									<td><?php echo $stu_info['stuEmail'];?></td>
 									<td><?php echo $stu_info['stuPhone'];?></td>
 									<td><?php echo $stu_info['stuDept'];?></td>
-									<td>Edit | Delete</td>
+									<!-- <td>Edit | Delete</td> -->
 								</tr>
 								<?php } ?>
 							</tbody>
