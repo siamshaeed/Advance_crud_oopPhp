@@ -78,7 +78,11 @@ $db_connect = new mysqli("localhost", "root", '', "php-crud");
 									<td><?php echo $stu_info['stuEmail'];?></td>
 									<td><?php echo $stu_info['stuPhone'];?></td>
 									<td><?php echo $stu_info['stuDept'];?></td>
-									<td>Edit</td>
+									<td>
+										<a href="#" class="btn btn-success" title="Edit">
+											<span class="glyphicon glyphicon-edit"></span>
+										</a>
+									</td>
 								</tr>
 								<?php } ?>
 							</tbody>
