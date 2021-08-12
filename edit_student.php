@@ -1,8 +1,3 @@
-<?php
-/* Attempt MySQL server connection. Assuming you are running MySQL
-server with default setting (user 'root' with no password) */
-$db_connect = new mysqli("localhost", "root", '', "php-crud");
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,15 +5,17 @@ $db_connect = new mysqli("localhost", "root", '', "php-crud");
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>CRUD | Data insert</title>
 	<link rel="stylesheet" href="css/bootstrap.css">
-	<link rel="stylesheet" href="css/all.css">
-	<link rel="stylesheet" href="css/fontawesome.css">
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+	<!-- php  -->
 	<?php
-	require_once 'classes.php';
-	$objSelect = new StudentInfo;
-	$query_result = $objSelect -> studentSelect();
+	$msg = "";
+	if (isset($_POST['btn'])) {
+		require_once 'classes.php';
+		$objInsert = new StudentInfo;
+		$msg = $objInsert->studentInsert($_POST);
+	}
 	?>
 	<!-- header section start -->
 	<div class="container">
@@ -51,7 +48,7 @@ $db_connect = new mysqli("localhost", "root", '', "php-crud");
 					<li class="nav-item">
 						<a class="nav-link " href="delete.php">Delete</a>
 					</li>
-				</ul>	
+				</ul>
 			</div>
 		</div>
 	</div>
@@ -61,40 +58,29 @@ $db_connect = new mysqli("localhost", "root", '', "php-crud");
 		<div class="row">
 			<div class="col-md-12">
 				<div class="myBody">
-					<div class="readTable">
-						<h2 class="readTitle">Student List</h2>
-						<table class="table table-hover table-striped text-center">
-							<thead>
-								<tr>
-									<th>Name</th>
-									<th>Email</th>
-									<th>Phone</th>
-									<th>Depertment</th>
-									<th>Action</th>
-								</tr>
-							</thead>
-							<tbody>
-								<?php while ($stu_info = mysqli_fetch_assoc($query_result)){?>
-								<tr>
-									<td><?php echo $stu_info['stuName'];?></td>
-									<td><?php echo $stu_info['stuEmail'];?></td>
-									<td><?php echo $stu_info['stuPhone'];?></td>
-									<td><?php echo $stu_info['stuDept'];?></td>
-									<td>
-										<a href="edit_student.php" class="btn btn-warning" title="Edit">
-											<i class="fas fa-edit"></i>
-										</a>
-									</td>
-								</tr>
-								<?php } ?>
-							</tbody>
-						</table>
+					<h4 class="bodyTitle">Student Info Update</h4>
+					<div class="regform">
+						<b><?php echo $msg?></b>
+						<form action="" method="post">
+							<input class="myinput" type="text" name="stuName" placeholder="Enter Your Name">
+							<input class="myinput" type="email" name="stuEmail" placeholder="Enter Your Email">
+							<input class="myinput" type="phone" name="stuPhone" placeholder="Enter Your phone">
+							<!-- <input class="myinput" type="text" name="stuDept" placeholder="Enter Your Depertment">  -->
+							<select class="myinput selectbBorder" name="stuDept">
+								<option>Select Your Depertment</option>
+								<option>CSE</option>
+								<option>EEE</option>
+								<option>CIVIL</option>
+							</select>
+							<br> <br>
+							<input type="submit" name="btn" value="Update Info">
+						</form>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<!-- menu section end -->
+	<!-- body section end -->
 	<!-- footer section start -->
 	<div class="container">
 		<div class="row">
@@ -109,6 +95,5 @@ $db_connect = new mysqli("localhost", "root", '', "php-crud");
 	</div>
 	<!-- footer section end -->
 	<script src="js/bootstrap.js"></script>
-	<script src="js/jquery.js"></script>
 </body>
 </html>
