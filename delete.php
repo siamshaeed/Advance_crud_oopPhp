@@ -10,6 +10,8 @@ $db_connect = new mysqli("localhost", "root", '', "php-crud");
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>CRUD | Data insert</title>
 	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/all.css">
+	<link rel="stylesheet" href="css/fontawesome.css">
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -78,7 +80,10 @@ $db_connect = new mysqli("localhost", "root", '', "php-crud");
 									<td><?php echo $stu_info['stuEmail'];?></td>
 									<td><?php echo $stu_info['stuPhone'];?></td>
 									<td><?php echo $stu_info['stuDept'];?></td>
-									<td>Delete</td>
+									<td>
+										<a href="edit_student.php" class="btn btn-danger" title="Edit">
+										<i class="far fa-trash-alt"></i>
+										</td>
 								</tr>
 								<?php } ?>
 							</tbody>
