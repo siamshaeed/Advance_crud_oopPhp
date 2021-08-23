@@ -6,6 +6,7 @@
             //Database connect
             $this->db = new mysqli("localhost", "root", "", "oopCrud_php");
         }
+        
         //this method for data insert
         public function studentInsert($data){   
             //mysql query
@@ -18,6 +19,7 @@
                 die('Query exicute problem'. mysqli_error($this->db));
             }
         } 
+
         //This method for data read
         public function studentSelect(){
             $sql = "SELECT * FROM stuinfo"; //mySql query

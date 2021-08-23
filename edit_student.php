@@ -1,12 +1,12 @@
 <?php 
 	$student_id = $_GET['id']; //get method data reacive from another page
 	require_once 'classes.php';
-	$student_update = new StudentInfo();
-	$query_result = $student_update->select_student_by_id($student_id);
+	$student_showFor_update = new StudentInfo();
+	$query_result = $student_showFor_update->select_student_by_id($student_id);
 	$query_info = mysqli_fetch_assoc($query_result);
-
+	//this code for data update on database
 	if(isset($_POST['btn'])){
-		$student_update->update_student_information($_POST);
+		$student_showFor_update->update_student_information($_POST); //function for data update
 	}
 ?>
 <!DOCTYPE html>
