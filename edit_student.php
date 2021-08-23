@@ -1,5 +1,5 @@
 <?php 
-	$student_id = $_GET['id']; //get method data reacive
+	$student_id = $_GET['id']; //get method data reacive from another page
 	require_once 'classes.php';
 	$student_update = new StudentInfo();
 	$query_result = $student_update->select_student_by_id($student_id);
