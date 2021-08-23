@@ -5,10 +5,9 @@
 	$query_result = $student_update->select_student_by_id($student_id);
 	$query_info = mysqli_fetch_assoc($query_result);
 
-		if(isset($_POST['btn'])){
-			$student_update->update_student_information($_POST);
-		}
-
+	if(isset($_POST['btn'])){
+		$student_update->update_student_information($_POST);
+	}
 ?>
 <!DOCTYPE html>
 <html lang="en">
