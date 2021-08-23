@@ -7,9 +7,6 @@
 
 		if(isset($_POST['btn'])){
 			$student_update->update_student_information($_POST);
-			// echo "<pre>";
-			// print_r($_POST);
-			// exit();
 		}
 
 ?>
