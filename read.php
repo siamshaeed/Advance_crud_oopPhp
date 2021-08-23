@@ -6,13 +6,12 @@
 	<title>CRUD | Data Read</title>
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/style.css">
-
 </head>
 <body>
 	<?php
 	require_once 'classes.php';
-	$objSelect = new StudentInfo;
-	$query_result = $objSelect -> studentSelect();
+	$objSelect = new StudentInfo; //object create
+	$query_result = $objSelect -> studentSelect(); //function for data read
 	?>
 	<!-- header section start -->
 	<div class="container">

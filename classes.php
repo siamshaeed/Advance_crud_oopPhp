@@ -20,7 +20,7 @@
         } 
         //This method for data read
         public function studentSelect(){
-            $sql = "SELECT * FROM stuinfo";
+            $sql = "SELECT * FROM stuinfo"; //mySql query
             if(mysqli_query($this->db, $sql)){
                 $query_result = mysqli_query($this->db, $sql);
                 return $query_result;
