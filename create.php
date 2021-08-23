@@ -13,8 +13,8 @@
 	$msg = "";
 	if (isset($_POST['btn'])) {
 		require_once 'classes.php';
-		$objInsert = new StudentInfo;
-		$msg = $objInsert->studentInsert($_POST);
+		$objInsert = new StudentInfo; //object create
+		$msg = $objInsert->studentInsert($_POST); //function calling
 	}
 	?>
 	<!-- header section start -->

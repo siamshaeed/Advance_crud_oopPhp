@@ -6,18 +6,16 @@
             //Database connect
             $this->db = new mysqli("localhost", "root", "", "oopCrud_php");
         }
-        public function studentInsert($data){   //oop method
+        //this method for data insert
+        public function studentInsert($data){   
             //mysql query
             $sql = "INSERT INTO stuinfo(`stuId`, `stuName`, `stuEmail`, `stuPhone`, `stuDept`) VALUES ('', '$data[stuName]', '$data[stuEmail]', '$data[stuPhone]', '$data[stuDept]')";
 
-            //query exicute
-            // mysqli_query($db, $sql);
-
             if(mysqli_query($this->db, $sql)){  //query exicute chack
-                $message = "Data insert Done";
+                $message = "Data insert successfully";
                 return $message;
             }else{
-                die('Query Exicute Problem'. mysqli_error($this->db));
+                die('Query exicute problem'. mysqli_error($this->db));
             }
         } 
         //This method for data read
