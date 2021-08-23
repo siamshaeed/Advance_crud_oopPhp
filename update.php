@@ -78,6 +78,7 @@
 									<td><?php echo $stu_info['stuPhone'];?></td>
 									<td><?php echo $stu_info['stuDept'];?></td>
 									<td>
+										<!-- using get method data pass one page to another page -->
 										<a href="edit_student.php?id=<?php echo $stu_info['stuId'];?>" class="btn btn-warning" title="Edit">
 											<i class="fas fa-edit"></i>
 										</a>
