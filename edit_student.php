@@ -4,6 +4,14 @@
 	$student_update = new StudentInfo();
 	$query_result = $student_update->select_student_by_id($student_id);
 	$query_info = mysqli_fetch_assoc($query_result);
+
+		if(isset($_POST['btn'])){
+			$student_update->update_student_information($_POST);
+			// echo "<pre>";
+			// print_r($_POST);
+			// exit();
+		}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,6 +68,7 @@
 					<div class="regform">
 						<form action="" method="post">
 							<input class="myinput" type="text" name="stuName" value="<?php echo $query_info['stuName']?>" placeholder="Enter Your Name">
+							<input class="myinput" type="hidden" name="stuId" value="<?php echo $query_info['stuId']?>">
 							<input class="myinput" type="email" name="stuEmail" value="<?php echo $query_info['stuEmail']?>" placeholder="Enter Your Email">
 							<input class="myinput" type="phone" name="stuPhone" value="<?php echo $query_info['stuPhone']?>" placeholder="Enter Your phone">
 							<input class="myinput" type="text" name="stuDept" value="<?php echo $query_info['stuDept']?>" placeholder="Enter Your Depertment"> 
