@@ -66,6 +66,7 @@ $db_connect = new mysqli("localhost", "root", '', "php-crud");
 						<table class="table table-hover table-striped text-center">
 							<thead>
 								<tr>
+									<th>Stu_id</th>
 									<th>Name</th>
 									<th>Email</th>
 									<th>Phone</th>
@@ -76,12 +77,13 @@ $db_connect = new mysqli("localhost", "root", '', "php-crud");
 							<tbody>
 								<?php while ($stu_info = mysqli_fetch_assoc($query_result)){?>
 								<tr>
+									<td><?php echo $stu_info['stuId'];?></td>
 									<td><?php echo $stu_info['stuName'];?></td>
 									<td><?php echo $stu_info['stuEmail'];?></td>
 									<td><?php echo $stu_info['stuPhone'];?></td>
 									<td><?php echo $stu_info['stuDept'];?></td>
 									<td>
-										<a href="edit_student.php" class="btn btn-warning" title="Edit">
+										<a href="edit_student.php?id=<?php echo $stu_info['stuId'];?>" class="btn btn-warning" title="Edit">
 											<i class="fas fa-edit"></i>
 										</a>
 									</td>

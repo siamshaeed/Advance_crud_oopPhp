@@ -1,3 +1,10 @@
+<?php 
+	$student_id = $_GET['id'];
+	require_once 'classes.php';
+	$student_update = new StudentInfo();
+	$query_result = $student_update->select_student_by_id($student_id);
+	$query_info = mysqli_fetch_assoc($query_result);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,15 +15,6 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<!-- php  -->
-	<?php
-	$msg = "";
-	if (isset($_POST['btn'])) {
-		require_once 'classes.php';
-		$objInsert = new StudentInfo;
-		$msg = $objInsert->studentInsert($_POST);
-	}
-	?>
 	<!-- header section start -->
 	<div class="container">
 		<div class="row">
@@ -60,18 +58,17 @@
 				<div class="myBody">
 					<h4 class="bodyTitle">Student Info Update</h4>
 					<div class="regform">
-						<b><?php echo $msg?></b>
 						<form action="" method="post">
-							<input class="myinput" type="text" name="stuName" placeholder="Enter Your Name">
-							<input class="myinput" type="email" name="stuEmail" placeholder="Enter Your Email">
-							<input class="myinput" type="phone" name="stuPhone" placeholder="Enter Your phone">
-							<!-- <input class="myinput" type="text" name="stuDept" placeholder="Enter Your Depertment">  -->
-							<select class="myinput selectbBorder" name="stuDept">
+							<input class="myinput" type="text" name="stuName" value="<?php echo $query_info['stuName']?>" placeholder="Enter Your Name">
+							<input class="myinput" type="email" name="stuEmail" value="<?php echo $query_info['stuEmail']?>" placeholder="Enter Your Email">
+							<input class="myinput" type="phone" name="stuPhone" value="<?php echo $query_info['stuPhone']?>" placeholder="Enter Your phone">
+							<input class="myinput" type="text" name="stuDept" value="<?php echo $query_info['stuDept']?>" placeholder="Enter Your Depertment"> 
+							<!-- <select class="myinput selectbBorder" name="stuDept" >
 								<option>Select Your Depertment</option>
 								<option>CSE</option>
 								<option>EEE</option>
 								<option>CIVIL</option>
-							</select>
+							</select> -->
 							<br> <br>
 							<input type="submit" name="btn" value="Update Info">
 						</form>

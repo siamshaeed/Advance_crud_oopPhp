@@ -1,5 +1,5 @@
 <?php
-    class StudentInfo{  //oop class (for student insert).
+    class StudentInfo{  //oop class.
         //database connection make global using __construct function.
         protected $db;  //make global veriable
         public function __construct(){
@@ -29,5 +29,15 @@
             }else{
                 die('Query execute problem'.mysqli_error($this->db));
             }
+        }
+
+        public function select_student_by_id($student_id){
+          $sql = "SELECT * FROM stuinfo WHERE stuid = '$student_id'";
+          if(mysqli_query($this->db,$sql)){
+              $query_result = mysqli_query($this->db,$sql);
+              return $query_result;
+          }else{
+            die('Query execute problem' . mysqli_error($this->db));
+          }
         }
     }
