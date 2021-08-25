@@ -1,7 +1,7 @@
 <?php
 /* Attempt MySQL server connection. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
-$db_connect = new mysqli("localhost", "root", '', "oopCrud_php");
+// $db_connect = new mysqli("localhost", "root", '', "oopCrud_php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,7 +44,7 @@ $db_connect = new mysqli("localhost", "root", '', "oopCrud_php");
 					<li class="nav-item">
 						<a class="nav-link " href="delete.php">Delete</a>
 					</li>
-				</ul>	
+				</ul>
 			</div>
 		</div>
 	</div>
@@ -55,7 +55,7 @@ $db_connect = new mysqli("localhost", "root", '', "oopCrud_php");
 			<div class="col-md-12">
 				<div class="myBody">
 					<p class="bodytext">CRUD is an acronym for Create, Read, Update, and Delete. CRUD operations are basic data manipulation for database. We've already learned how to perform create (i.e. insert), read (i.e. select), update and delete operations in previous chapters. In this tutorial we'll create a simple PHP application to perform all these operations on a MySQL database table at one place.
-					Well, let's start by creating the table which we'll use in all of our example.</p>
+						Well, let's start by creating the table which we'll use in all of our example.</p>
 				</div>
 			</div>
 		</div>

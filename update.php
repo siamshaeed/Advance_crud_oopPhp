@@ -13,7 +13,7 @@
 	<?php
 	require_once 'classes.php';
 	$objSelect = new StudentInfo;
-	$query_result = $objSelect -> studentSelect();
+	$query_result = $objSelect->studentSelect(); //for data read
 	?>
 	<!-- header section start -->
 	<div class="container">
@@ -46,7 +46,7 @@
 					<li class="nav-item">
 						<a class="nav-link " href="delete.php">Delete</a>
 					</li>
-				</ul>	
+				</ul>
 			</div>
 		</div>
 	</div>
@@ -70,20 +70,20 @@
 								</tr>
 							</thead>
 							<tbody>
-								<?php while ($stu_info = mysqli_fetch_assoc($query_result)){?>
-								<tr>
-									<td><?php echo $stu_info['stuId'];?></td>
-									<td><?php echo $stu_info['stuName'];?></td>
-									<td><?php echo $stu_info['stuEmail'];?></td>
-									<td><?php echo $stu_info['stuPhone'];?></td>
-									<td><?php echo $stu_info['stuDept'];?></td>
-									<td>
-										<!-- using get method data pass one page to another page -->
-										<a href="edit_student.php?id=<?php echo $stu_info['stuId'];?>" class="btn btn-warning" title="Edit">
-											<i class="fas fa-edit"></i>
-										</a>
-									</td>
-								</tr>
+								<?php while ($stu_info = mysqli_fetch_assoc($query_result)) { ?>
+									<tr>
+										<td><?php echo $stu_info['stuId']; ?></td>
+										<td><?php echo $stu_info['stuName']; ?></td>
+										<td><?php echo $stu_info['stuEmail']; ?></td>
+										<td><?php echo $stu_info['stuPhone']; ?></td>
+										<td><?php echo $stu_info['stuDept']; ?></td>
+										<td>
+											<!-- using get method data pass one page to another page -->
+											<a href="edit_student.php?id=<?php echo $stu_info['stuId']; ?>" class="btn btn-warning" title="Edit">
+												<i class="fas fa-edit"></i>
+											</a>
+										</td>
+									</tr>
 								<?php } ?>
 							</tbody>
 						</table>

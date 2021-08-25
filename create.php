@@ -8,11 +8,11 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<!-- php  -->
+<!-- php code for insert data -->
 	<?php
 	$msg = "";
 	if (isset($_POST['btn'])) {
-		require_once 'classes.php';
+		require_once 'classes.php'; //connection class.php page
 		$objInsert = new StudentInfo; //object create
 		$msg = $objInsert->studentInsert($_POST); //function calling
 	}
@@ -60,7 +60,7 @@
 				<div class="myBody">
 					<h4 class="bodyTitle">Student Registration</h4>
 					<div class="regform">
-						<b><?php echo $msg?></b>
+						<b><?php echo $msg //insert successful message?></b>
 						<form action="" method="post">
 							<input class="myinput" type="text" name="stuName" placeholder="Enter Your Name">
 							<input class="myinput" type="email" name="stuEmail" placeholder="Enter Your Email">

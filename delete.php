@@ -1,10 +1,6 @@
-<?php
-/* Attempt MySQL server connection. Assuming you are running MySQL
-server with default setting (user 'root' with no password) */
-$db_connect = new mysqli("localhost", "root", '', "php-crud");
-?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,16 +15,16 @@ $db_connect = new mysqli("localhost", "root", '', "php-crud");
 	require_once 'classes.php';
 	$objSelect = new StudentInfo;
 	//for data delete
-	if(isset($_GET['delete'])){
+	if (isset($_GET['delete'])) {
 		$id = $_GET['delete'];
 		$objSelect->delete_student_byId($id);
 	}
 	//For delete message show
 	$message_forDelete = '';
-	if(isset($_SESSION['message'])){
+	if (isset($_SESSION['message'])) {
 		$message_forDelete =  $_SESSION['message'];
 	}
-	$query_result = $objSelect -> studentSelect(); //function for data read
+	$query_result = $objSelect->studentSelect(); //function for data read
 	?>
 	<!-- header section start -->
 	<div class="container">
@@ -61,7 +57,7 @@ $db_connect = new mysqli("localhost", "root", '', "php-crud");
 					<li class="nav-item">
 						<a class="nav-link " href="delete.php">Delete</a>
 					</li>
-				</ul>	
+				</ul>
 			</div>
 		</div>
 	</div>
@@ -73,7 +69,7 @@ $db_connect = new mysqli("localhost", "root", '', "php-crud");
 				<div class="myBody">
 					<div class="readTable">
 						<h2 class="readTitle">Student List</h2>
-						<h2 class="readTitle" style="color: green;"><?php echo $message_forDelete;?></h2>
+						<h2 class="readTitle" style="color: green;"><?php echo $message_forDelete; ?></h2>
 						<table class="table table-hover table-striped text-center">
 							<thead>
 								<tr>
@@ -86,18 +82,18 @@ $db_connect = new mysqli("localhost", "root", '', "php-crud");
 								</tr>
 							</thead>
 							<tbody>
-								<?php while ($stu_info = mysqli_fetch_assoc($query_result)){?>
-								<tr>
-									<td><?php echo $stu_info['stuId'];?></td>
-									<td><?php echo $stu_info['stuName'];?></td>
-									<td><?php echo $stu_info['stuEmail'];?></td>
-									<td><?php echo $stu_info['stuPhone'];?></td>
-									<td><?php echo $stu_info['stuDept'];?></td>
-									<td>
-										<a href="?delete=<?php echo $stu_info['stuId'];?>" class="btn btn-danger" title="Edit">
-										<i class="far fa-trash-alt"></i>
+								<?php while ($stu_info = mysqli_fetch_assoc($query_result)) { ?>
+									<tr>
+										<td><?php echo $stu_info['stuId']; ?></td>
+										<td><?php echo $stu_info['stuName']; ?></td>
+										<td><?php echo $stu_info['stuEmail']; ?></td>
+										<td><?php echo $stu_info['stuPhone']; ?></td>
+										<td><?php echo $stu_info['stuDept']; ?></td>
+										<td>
+											<a href="?delete=<?php echo $stu_info['stuId']; ?>" class="btn btn-danger" title="Edit">
+												<i class="far fa-trash-alt"></i>
 										</td>
-								</tr>
+									</tr>
 								<?php } ?>
 							</tbody>
 						</table>

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,19 +7,18 @@
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 	<?php
 	require_once 'classes.php';
 	$objSelect = new StudentInfo; //object create
 	$query_result = $objSelect->studentSelect(); //function for data read
 	//This code for show message by using session
-	$message='';
+	$message = '';
 	session_start();
-	if(isset($_SESSION['message'])){
-	 $message = $_SESSION['message'];
+	if (isset($_SESSION['message'])) {
+		$message = $_SESSION['message'];
 		unset($_SESSION['message']);
-		}
+	}
 	?>
 	<!-- header section start -->
 	<div class="container">
@@ -65,10 +63,11 @@
 				<div class="myBody">
 					<div class="readTable">
 						<h2 class="readTitle">Student List</h2>
-						<h2 class="readTitle" style="color: green;"><?php echo $message;?></h2>
+						<h2 class="readTitle" style="color: green;"><?php echo $message; ?></h2>
 						<table class="table table-hover table-striped text-center">
 							<thead>
 								<tr>
+									<th>Id</th>
 									<th>Name</th>
 									<th>Email</th>
 									<th>Phone</th>
@@ -79,11 +78,11 @@
 							<tbody>
 								<?php while ($stu_info = mysqli_fetch_assoc($query_result)) { ?>
 									<tr>
+										<td><?php echo $stu_info['stuId']; ?></td>
 										<td><?php echo $stu_info['stuName']; ?></td>
 										<td><?php echo $stu_info['stuEmail']; ?></td>
 										<td><?php echo $stu_info['stuPhone']; ?></td>
 										<td><?php echo $stu_info['stuDept']; ?></td>
-										<!-- <td>Edit | Delete</td> -->
 									</tr>
 								<?php } ?>
 							</tbody>
@@ -110,5 +109,4 @@
 	<script src="js/bootstrap.js"></script>
 	<script src="js/jquery.js"></script>
 </body>
-
 </html>
