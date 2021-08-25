@@ -52,4 +52,16 @@
                 die('Query execute problem'.mysqli_error($this->db));
             }
         }
+
+        public function delete_student_byId($id){
+            // echo "<pre>";
+            // print_r($id);
+          
+            $sql = "DELETE FROM stuinfo WHERE stuid = '$id' ";
+
+            if(mysqli_query($this->db,$sql)){
+                session_start();
+             $_SESSION['message'] = "Student Info delete successfully";
+            }
+        }
     }

@@ -18,7 +18,17 @@ $db_connect = new mysqli("localhost", "root", '', "php-crud");
 	<?php
 	require_once 'classes.php';
 	$objSelect = new StudentInfo;
-	$query_result = $objSelect -> studentSelect();
+	//for data delete
+	if(isset($_GET['delete'])){
+		$id = $_GET['delete'];
+		$objSelect->delete_student_byId($id);
+	}
+	//For delete message show
+	$message_forDelete = '';
+	if(isset($_SESSION['message'])){
+		$message_forDelete =  $_SESSION['message'];
+	}
+	$query_result = $objSelect -> studentSelect(); //function for data read
 	?>
 	<!-- header section start -->
 	<div class="container">
@@ -63,9 +73,11 @@ $db_connect = new mysqli("localhost", "root", '', "php-crud");
 				<div class="myBody">
 					<div class="readTable">
 						<h2 class="readTitle">Student List</h2>
+						<h2 class="readTitle" style="color: green;"><?php echo $message_forDelete;?></h2>
 						<table class="table table-hover table-striped text-center">
 							<thead>
 								<tr>
+									<th>Id</th>
 									<th>Name</th>
 									<th>Email</th>
 									<th>Phone</th>
@@ -76,12 +88,13 @@ $db_connect = new mysqli("localhost", "root", '', "php-crud");
 							<tbody>
 								<?php while ($stu_info = mysqli_fetch_assoc($query_result)){?>
 								<tr>
+									<td><?php echo $stu_info['stuId'];?></td>
 									<td><?php echo $stu_info['stuName'];?></td>
 									<td><?php echo $stu_info['stuEmail'];?></td>
 									<td><?php echo $stu_info['stuPhone'];?></td>
 									<td><?php echo $stu_info['stuDept'];?></td>
 									<td>
-										<a href="edit_student.php" class="btn btn-danger" title="Edit">
+										<a href="?delete=<?php echo $stu_info['stuId'];?>" class="btn btn-danger" title="Edit">
 										<i class="far fa-trash-alt"></i>
 										</td>
 								</tr>
