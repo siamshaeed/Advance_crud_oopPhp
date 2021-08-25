@@ -44,6 +44,8 @@
         public function update_student_information($data){ //This method for data update by edit_student page
             $sql = "UPDATE stuinfo SET stuName='$data[stuName]', stuEmail='$data[stuEmail]', stuPhone='$data[stuPhone]', stuDept='$data[stuDept]' WHERE stuId = $data[stuId]";
             if(mysqli_query($this->db,$sql)){
+                session_start(); 	//This code for show message by using session
+                $_SESSION['message'] = "Student Info Update Successfully !"; 
                 header('Location:read.php'); // header function make page redairect
                 exit();
             }else{
