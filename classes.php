@@ -1,6 +1,5 @@
 <?php
-class StudentInfo
-{  //oop class.
+class StudentInfo{  //oop class.
     //database connection make global using __construct function.
     protected $db;  //make global veriable
     public function __construct(){
